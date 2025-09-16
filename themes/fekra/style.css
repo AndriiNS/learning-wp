@@ -1,0 +1,82 @@
+/* 
+Theme Name: Fekra
+Theme URI: https://fekra.com
+Description: Fekra Theme
+Author: Andrii Naumov
+Author URI: https://Fekra.com
+*/
+
+/* Contact Form 7 Styling */
+.contact-form-wrapper {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.wpcf7-form p {
+  margin-bottom: 20px;
+}
+
+.wpcf7-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.wpcf7-form input[type="submit"] {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.wpcf7-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.wpcf7-not-valid-tip {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.wpcf7-response-output {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.wpcf7-response-output.wpcf7-mail-sent-ok {
+  background-color: #d4edda;
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.wpcf7-response-output.wpcf7-mail-sent-ng,
+.wpcf7-response-output.wpcf7-validation-errors {
+  background-color: #f8d7da;
+  color: #dc3545;
+  border-color: #dc3545;
+}
