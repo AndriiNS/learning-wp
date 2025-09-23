@@ -1,29 +1,19 @@
 <?php get_header(); ?>
 
+
 <main style="min-height: 100vh; background-color: #444; text-align: center; padding: 40px 0;">
 
     <section class="blog" style="background-color: #444;">
         <div class="blog__container">
-            <div class="blog__headline">
-                <h2 class="blog__title title"><?php the_title(); ?></h2>
-                <p class="blog__subtitle"><?php the_content(); ?></p>
-            </div>
 
             <?php
-
-            $paged = get_query_var('paged') ?? 1;
-
-            $args = [
-                'post_type' => 'blog',
-                'posts_per_page' => 4,
-                'paged' => $paged,
-            ];
-
-            $blog_query = new WP_Query($args);
-
-            if ($blog_query->have_posts()) { ?>
+            if (have_posts()) {
+            ?>
                 <div class="blog__grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
-                    <?php while ($blog_query->have_posts()) : $blog_query->the_post();
+                    <?php
+                    while (have_posts()) {
+                        the_post();
+
                         $blog_id = get_the_ID();
                         $blog_thumb = get_the_post_thumbnail_url($blog_id, 'full');
                         $blog_icon = get_field('custom_icon', $blog_id);
@@ -42,7 +32,9 @@
                                 <div class="blog__calendar-info">
                                     <div class="blog__img-calendar">
                                         <?php
-                                        echo wp_get_attachment_image($blog_icon, 'full', false, ['class' => 'blog__pic-calendar', 'alt' => 'calendar']);
+                                        if ($blog_icon) {
+                                            echo wp_get_attachment_image($blog_icon, 'full', false, ['class' => 'blog__pic-calendar', 'alt' => 'calendar']);
+                                        }
                                         ?>
                                     </div>
                                     <div class="blog__date-calendar">
@@ -51,28 +43,27 @@
                                 </div>
                             </div>
                         </div>
-                    <?php endwhile; ?>
+                    <?php
+                    }
+                    ?>
                 </div>
 
                 <div class="blog__pagination" style="margin-top:30px;">
                     <?php
+                    global $wp_query;
                     echo paginate_links([
-                        'total' => $blog_query->max_num_pages,
-                        'current' => $paged,
+                        'total' => $wp_query->max_num_pages,
+                        'current' => max(1, get_query_var('paged')),
                     ]);
                     ?>
                 </div>
-
-            <?php } ?>
-
             <?php
-
-            wp_reset_postdata();
-
+            }
             ?>
 
         </div>
     </section>
+
 
 </main>
 

@@ -8,3 +8,4 @@ require_once get_template_directory() . '/inc/theme_widgets.php';
 require_once get_template_directory() . '/inc/activationg_optiong_page_footer.php';
 require_once get_template_directory() . '/inc/user_registration.php';
 require_once get_template_directory() . '/inc/sign_user_in.php';
+require_once get_template_directory() . '/inc/blogs_per_page.php';

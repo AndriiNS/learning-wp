@@ -23,7 +23,7 @@ function fekra_register_blog_cpt()
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
-        'rewrite'            => ['slug' => 'blog'],
+        'rewrite'            => ['slug' => 'blog', 'with_front' => false],
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
