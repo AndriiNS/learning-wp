@@ -3871,3 +3871,14 @@ body {
   font-size: 18rem;
   color: #000;
 }
+
+.custom-auth-container button {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .custom-auth-container .overlay-panel,
+  .custom-auth-container form {
+    padding: 0 10px;
+  }
+}
