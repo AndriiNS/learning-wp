@@ -9,7 +9,7 @@
             <?php
             if (have_posts()) {
             ?>
-                <div class="blog__grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                <div class="blog__grid">
                     <?php
                     while (have_posts()) {
                         the_post();
@@ -20,11 +20,11 @@
                         $blog_date_day = get_the_date('d', $blog_id);
                         $blog_date_month = get_the_date('M', $blog_id);
                     ?>
-                        <div class="blog__card" style="background-color: #fff; padding: 20px;">
+                        <div class="blog__card">
                             <div class="blog__img-slide">
                                 <img src="<?php echo esc_url($blog_thumb); ?>" alt="<?php the_title_attribute(); ?>" class="blog__pic-slide">
                             </div>
-                            <div class="blog__info" style="text-align: start;">
+                            <div class="blog__info">
                                 <h3 class="blog__title-info">
                                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                 </h3>
@@ -38,7 +38,7 @@
                                         ?>
                                     </div>
                                     <div class="blog__date-calendar">
-                                        <span><?php echo esc_html($blog_date_day); ?><br> <?php echo esc_html($blog_date_month); ?></span>
+                                        <span><?php echo esc_html($blog_date_day); ?><br><?php echo esc_html($blog_date_month); ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -47,6 +47,7 @@
                     }
                     ?>
                 </div>
+
 
                 <div class="blog__pagination" style="margin-top:30px;">
                     <?php
